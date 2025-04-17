@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="mediaqueries.css" />
   </head>
   <body>
+    <div class="topper">
+      <div class="logo"><img src="./assets/OOVV transp.png" class="iconL"/></div>
+    </div>
     <nav id="desktop-nav">
-      <div class="logo"><img src="./assets/logo2.png" class="icon"/> Olivia Vega</div>
       <div>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
@@ -21,7 +23,7 @@
       </div>
     </nav>
     <nav id="hamburger-nav">
-      <div class="logo">Olivia Vega</div>
+      <div class="logo"><img src="./assets/OOVV transp.png" class="iconL"/>Olivia Vega</div>
       <div class="hamburger-menu">
         <div class="hamburger-icon" onclick="toggleMenu()">
           <span></span>
@@ -41,13 +43,13 @@
         <img src="./assets/profile-pic.jpg" alt="Olivia Vega profile picture" class="profile-pic"/>
       </div>
       <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Olivia Vega</h1>
-        <p class="section__text__p2">Aspiring Data Scientist</p>
+        <p class="section__text__p1" class="except">Hello, I'm</p>
+        <h1 class="title" class="except">Olivia Vega</h1>
+        <p class="section__text__p2" class="except">Aspiring Front End Developer and UX Designer</p>
         <div class="btn-container">
           <button
             class="btn btn-color-2"
-            onclick="window.open('./assets/resume-example.pdf')"
+            onclick="window.open('./assets/O_V_Resume.pdf')"
           >
             Download CV
           </button>
@@ -60,21 +62,53 @@
             src="./assets/linkedin.png"
             alt="My LinkedIn profile"
             class="icon"
-            onclick="location.href='https://linkedin.com/'"
-          />
+            onclick="location.href='https://www.linkedin.com/in/olivia2vega'"
+            />
           <img
             src="./assets/github.png"
             alt="My Github profile"
             class="icon"
-            onclick="location.href='https://github.com/'"
+            onclick="location.href='https://github.com/oliviaalicia'"
           />
         </div>
       </div>
     </section>
+    <div id ="subhead">
+    <img
+            src="./assets/OO.png"
+            alt="Circle"
+            class="circle"
+          />
+    <h1 class="titleExcept">About</h1>
+    </div>
     <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
       <div class="section-container">
+        <div class="about-details-container">
+          <div class="bullet">
+            <img
+            src="./assets/vv.png"
+            alt="Triangle"
+            class="triangle"
+          />
+          </div>
+          <div class="text-container">
+            <p>
+                Hi there! I’m a UX Designer-in-the-making with a passion for solving real problems through intuitive and thoughtful design. Currently wrapping up my degree in Information Technology with a concentration in Web Application Development, I’m making a career pivot from hospitality and floral event planning into the world of UX/UI and web design — and loving every opportunity to blend my interests in creativity and technology. 
+
+My experience includes building user-centered prototypes and websites from the ground up — from conducting interviews and usability testing to designing in Figma and Adobe XD, and developing with HTML, CSS, JavaScript, and Bootstrap. I recently created a crochet tool prototype through a full UX process (research, wireframing, testing, and reporting), and built a complete Wix site for a client’s event planning business, including design boards, logo, copywriting, and launch.
+
+While my professional background isn’t traditional tech, it’s packed with transferable skills:
+<br>✦ Strategic consultation & client communication
+<br>✦ Project management & event coordination
+<br>✦ Team leadership & problem solving
+<br>✦ Sales & data tracking with tools like SQL and Excel
+<br>
+<br>Whether I’m designing interfaces or mapping out user journeys, I thrive on turning complex ideas into simple, beautiful experiences. I'm excited to bring a people-first approach, a detail-oriented mindset, and a love for learning to every design challenge I meet.
+
+Let’s connect — I’m always open to collaboration, feedback, or just chatting about all things UX!
+            </p>
+          </div>
+        </div>
         <div class="section__pic-container">
           <img
             src="./assets/about-pic.jpg"
@@ -82,34 +116,8 @@
             class="about-pic"
           />
         </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
-              />
-              <h3>Experience</h3>
-              <p>2+ years <br />of Tryin'</p>
-            </div>
-            <div class="details-container">
-              <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon"
-              />
-              <h3>Education</h3>
-              <p>A.A. Hospitality Management<br />B.Sc. Information Technology, Concentration Data Programming</p>
-            </div>
-          </div>
-          <div class="text-container">
-            <p>
-                Motivated and adept at collaborating within teams and working independently. Excellent communication and customer relations skills, coupled with a passion for overcoming challenges and a keen interest in continuous learning from experienced professionals in the field.
-            </p>
-          </div>
-        </div>
       </div>
+      
       <img
         src="./assets/arrow.png"
         alt="Arrow icon"
@@ -123,93 +131,115 @@
       <div class="experience-details-container">
         <div class="about-containers">
           <div class="details-container">
-            <h2 class="experience-sub-title">Data Analysis</h2>
+            <h2 class="experience-sub-title">UX/ UI Design</h2>
             <div class="article-container">
               <article>
                 <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>EXCEL</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Python</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>SQL</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Tableau</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>PowerBI</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Looker Studio</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
+                  src="./assets/OO.png"
                   alt="Experience icon"
                   class="icon"
                 />
                 <div>
                   <h3>Figma</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/OO.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Adobe XD</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/OO.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Adobe Illustrator</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/OO.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Adobe Photoshop</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/OO.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Adobe AfterEffects</h3>
+                  <p>Basic</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/OO.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Procreate</h3>
+                  <p>Basic</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/OO.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>GIMP</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/OO.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Canva</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/OO.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Blender</h3>
                   <p>Intermediate</p>
                 </div>
               </article>
             </div>
           </div>
           <div class="details-container">
-            <h2 class="experience-sub-title">Frontend Development</h2>
+            <h2 class="experience-sub-title">Frontend / Backend Development</h2>
             <div class="article-container">
               <article>
                 <img
-                  src="./assets/checkmark.png"
+                  src="./assets/OO.png"
                   alt="Experience icon"
                   class="icon"
                 />
@@ -220,7 +250,7 @@
               </article>
               <article>
                 <img
-                  src="./assets/checkmark.png"
+                  src="./assets/OO.png"
                   alt="Experience icon"
                   class="icon"
                 />
@@ -231,7 +261,7 @@
               </article>
               <article>
                 <img
-                  src="./assets/checkmark.png"
+                  src="./assets/OO.png"
                   alt="Experience icon"
                   class="icon"
                 />
@@ -242,7 +272,7 @@
               </article>
               <article>
                 <img
-                  src="./assets/checkmark.png"
+                  src="./assets/OO.png"
                   alt="Experience icon"
                   class="icon"
                 />
@@ -251,7 +281,106 @@
                   <p>Intermediate</p>
                 </div>
               </article>
+              <article>
+                <img
+                  src="./assets/OO.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Bootstrap</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/OO.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Python</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+            <h2 class="experience-sub-title">Data Analysis</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assets/OO.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>EXCEL</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/OO.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Google Analytics</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/OO.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>SQL</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/OO.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Tableau</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/OO.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>PowerBI</h3>
+                  <p>Basic</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/OO.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Looker Studio</h3>
+                  <p>Basic</p>
+                </div>
+              </article>
+            
+            </div>
+          </div>
           </div>
         </div>
       </div>
@@ -270,7 +399,7 @@
           <div class="details-container color-container">
             <div class="article-container">
               <img
-                src="./assets/project-1.png"
+                src="./assets/Boxed.png"
                 alt="Project 1"
                 class="project-img"
               />
@@ -444,7 +573,7 @@
             alt="Email icon"
             class="icon contact-icon email-icon"
           />
-          <p><a href="mailto:examplemail@gmail.com">Example@gmail.com</a></p>
+          <p><a href="mailto:ovega2.gmu@gmail.com">ovega2.gmu@gmail.com</a></p>
         </div>
         <div class="contact-info-container">
           <img
@@ -452,7 +581,7 @@
             alt="LinkedIn icon"
             class="icon contact-icon"
           />
-          <p><a href="https://www.linkedin.com">LinkedIn</a></p>
+          <p><a href="https://www.linkedin.com/in/olivia2vega" target="_blank">LinkedIn</a></p>
         </div>
       </div>
     </section>
