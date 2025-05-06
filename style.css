@@ -177,15 +177,6 @@ a:hover {
     transform: scale(1,1.1) translate(-50%, 10%)
   }
 
-  .landing {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    text-align: center;
-  }
 
   .section__pic-container {
     display: flex;
