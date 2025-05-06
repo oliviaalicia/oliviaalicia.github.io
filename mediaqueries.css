@@ -1,7 +1,8 @@
 @media screen and (max-width: 1400px) {
-    #profile {
+    #hero {
       height: 83vh;
       margin-bottom: 6rem;
+
     }
     .about-containers {
       flex-wrap: wrap;
@@ -23,7 +24,7 @@
     .experience-details-container {
       margin-top: 2rem;
     }
-    #profile,
+    #hero,
     .section-container {
       display: block;
     }
@@ -50,14 +51,16 @@
     }
   }
   
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 700px) {
     #contact,
     footer {
       height: 40vh;
     }
-    #profile {
+    #hero {
       height: 83vh;
       margin-bottom: 0;
+      margin-left: 5px;
+      margin-right: 5px;
     }
     article {
       font-size: 1rem;
@@ -100,7 +103,7 @@
     .title {
       font-size: 2rem;
     }
-    .titleExcept {
+    .titleL {
       font-size: 2rem;
     }
     .text-container {

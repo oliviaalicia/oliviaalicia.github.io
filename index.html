@@ -1,505 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Olivia Vega</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
-  </head>
-  <body>
-    <div class="topper">
-      <div class="logo"><img src="./assets/OOVV transp.png" class="iconL"/></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smooth Scroll Tab Reveal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mediaqueries.css" />
+</head>
+<body>
+
+      <nav id="desktop-nav">
+        <div class="logo"><a href="https://oliviaalicia.github.io/"><img src="./assets/alientransp.png" class="iconL"></a></div>
+          <ul class="nav-links">
+            <li><a href="#profile">About</a></li>
+            <li><a href="#projects">Experience</a></li>
+            <li><a href="#ProfProjects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <nav id="hamburger-nav">
+        <div class="logo"><img src="./assets/alientransp.png" class="iconL"/></div>
+        <div class="hamburger-menu">
+          <div class="hamburger-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="menu-links">
+            <li><a href="#about" onclick="toggleMenu()">About</a></li>
+            <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+            <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+          </div>
+        </div>
+      </nav>
+  <div class="hero">
+    <h1 class ="title">Olivia Vega</h1>
+    <h3>Frontend Developer, UI Designer, Addicted to Learning</h3>
+    <div class="btn-container">
+      <button
+        class="btn btn-color-2"
+        onclick="window.open('./assets/O_V_Resume.pdf')"
+      >
+        Download CV
+      </button>
+      <button class="btn btn-color-1" onclick="location.href='#contact'">
+        Contact Info
+      </button>
     </div>
-    <nav id="desktop-nav">
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-    <nav id="hamburger-nav">
-      <div class="logo"><img src="./assets/OOVV transp.png" class="iconL"/>Olivia Vega</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-      </div>
-    </nav>
+    <div id="socials-container">
+      <img
+        src="./assets/linkedin.png"
+        alt="My LinkedIn profile"
+        class="icon"
+        onclick="location.href='https://www.linkedin.com/in/olivia2vega'"
+        />
+      <img
+        src="./assets/github.png"
+        alt="My Github profile"
+        class="icon"
+        onclick="location.href='https://github.com/oliviaalicia'"
+      />
+    </div>
+    <img src="assets/gifblj=k.gif" class="alien"/>
+    </div>
+
     <section id="profile">
-      <div class="section__pic-container">
-        <img src="./assets/profile-pic.jpg" alt="Olivia Vega profile picture" class="profile-pic"/>
-      </div>
-      <div class="section__text">
-        <p class="section__text__p1" class="except">Hello, I'm</p>
-        <h1 class="title" class="except">Olivia Vega</h1>
-        <p class="section__text__p2" class="except">Aspiring Front End Developer and UX Designer</p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./assets/O_V_Resume.pdf')"
-          >
-            Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
-          </button>
-        </div>
-        <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://www.linkedin.com/in/olivia2vega'"
-            />
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https://github.com/oliviaalicia'"
-          />
-        </div>
-      </div>
-    </section>
-    <div id ="subhead">
-    <img
-            src="./assets/OO.png"
-            alt="Circle"
-            class="circle"
-          />
-    <h1 class="titleExcept">About</h1>
-    </div>
-    <section id="about">
-      <div class="section-container">
-        <div class="about-details-container">
-          <div class="bullet">
-            <img
-            src="./assets/vv.png"
-            alt="Triangle"
-            class="triangle"
-          />
-          </div>
-          <div class="text-container">
-            <p>
-                Hi there! I’m a UX Designer-in-the-making with a passion for solving real problems through intuitive and thoughtful design. Currently wrapping up my degree in Information Technology with a concentration in Web Application Development, I’m making a career pivot from hospitality and floral event planning into the world of UX/UI and web design — and loving every opportunity to blend my interests in creativity and technology. 
-
-My experience includes building user-centered prototypes and websites from the ground up — from conducting interviews and usability testing to designing in Figma and Adobe XD, and developing with HTML, CSS, JavaScript, and Bootstrap. I recently created a crochet tool prototype through a full UX process (research, wireframing, testing, and reporting), and built a complete Wix site for a client’s event planning business, including design boards, logo, copywriting, and launch.
-
-While my professional background isn’t traditional tech, it’s packed with transferable skills:
-<br>✦ Strategic consultation & client communication
-<br>✦ Project management & event coordination
-<br>✦ Team leadership & problem solving
-<br>✦ Sales & data tracking with tools like SQL and Excel
-<br>
-<br>Whether I’m designing interfaces or mapping out user journeys, I thrive on turning complex ideas into simple, beautiful experiences. I'm excited to bring a people-first approach, a detail-oriented mindset, and a love for learning to every design challenge I meet.
-
-            </p>
-          </div>
-        </div>
+      <div class="section-inner">
+        <h1 class="titleL" class="new">About</h1>
+        <div class="section-container">
         <div class="section__pic-container">
-          <img
-            src="./assets/about-pic.jpg"
-            alt="Profile picture"
-            class="about-pic"
-          />
+          <img src="./assets/profile-pic.jpg" alt="Olivia Vega profile picture" class="profile-pic"/>
         </div>
+        <div class="section__text">
+          <p class="section__text__p2">  Hi there! I’m a UI Designer and Web Developer-in-the-making with a passion for solving real problems through intuitive and thoughtful design. Currently wrapping up my degree in Information Technology with a concentration in Web Application Development, I’m making a career pivot from hospitality and floral event planning into the world of UX/UI and web development — and loving every opportunity to blend my interests in creativity and technology. </p>
+       </div>
       </div>
-      
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#experience'"
-      />
+      </div>
     </section>
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <h2 class="experience-sub-title">UX/ UI Design</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/OO.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Figma</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/OO.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Adobe XD</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/OO.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Adobe Illustrator</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/OO.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Adobe Photoshop</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/OO.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Adobe AfterEffects</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/OO.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Procreate</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/OO.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>GIMP</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/OO.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Canva</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/OO.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Blender</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-            </div>
-          </div>
-          <div class="details-container">
-            <h2 class="experience-sub-title">Frontend / Backend Development</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/OO.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>HTML</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/OO.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>CSS</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/OO.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>JavaScript</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/OO.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Git</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/OO.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Bootstrap</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/OO.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Python</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <h2 class="experience-sub-title">Data Analysis</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/OO.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>EXCEL</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/OO.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Google Analytics</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/OO.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>SQL</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/OO.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Tableau</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/OO.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>PowerBI</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/OO.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Looker Studio</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-            
-            </div>
-          </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#projects'"
-      />
-    </section>
-    <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Professional Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/Boxed.png"
-                alt="Project 1"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project One</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-2.png"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project Two</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-3.png"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project Three</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#contact'"
-      />
-    </section>
-    <section id="projects">
-        <p class="section__text__p1">Browse My Recent</p>
-        <h1 class="title">Personal Projects</h1>
+    <section id="projects" class="design">
+      <div class="section-inner">
+        <h1 class="titleL">Front End Projects</h1>
         <div class="experience-details-container">
           <div class="about-containers">
             <div class="details-container color-container">
               <div class="article-container">
                 <img
-                  src="./assets/project-1.png"
+                  src="./assets/squad.png"
                   alt="Project 1"
                   class="project-img"
                 />
               </div>
-              <h2 class="experience-sub-title project-title">Project One</h2>
+              <h2 class="experience-sub-title project-title">Eyeball</h2>
               <div class="btn-container">
                 <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/'"
+                  class="btn btn-color-1 project-btn"
+                  onclick="window.open('https://github.com/')"
                 >
                   Github
                 </button>
                 <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/'"
+                  class="btn btn-color-1 project-btn"
+                  onclick="window.open('https://codepen.io/oliviaalicia-the-flexboxer/pen/WbbyoOY')"
                 >
                   Live Demo
                 </button>
@@ -516,14 +119,14 @@ While my professional background isn’t traditional tech, it’s packed with tr
               <h2 class="experience-sub-title project-title">Project Two</h2>
               <div class="btn-container">
                 <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/'"
+                  class="btn btn-color-1 project-btn"
+                  onclick="window.open('https://github.com/')"
                 >
                   Github
                 </button>
                 <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/'"
+                  class="btn btn-color-1 project-btn"
+                  onclick="window.open('https://github.com/')"
                 >
                   Live Demo
                 </button>
@@ -540,14 +143,14 @@ While my professional background isn’t traditional tech, it’s packed with tr
               <h2 class="experience-sub-title project-title">Project Three</h2>
               <div class="btn-container">
                 <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/'"
+                  class="btn btn-color-1 project-btn"
+                  onclick="window.open('https://github.com/')"
                 >
                   Github
                 </button>
                 <button
-                  class="btn btn-color-2 project-btn"
-                  onclick="location.href='https://github.com/'"
+                  class="btn btn-color-1 project-btn"
+                  onclick="window.open('https://github.com/')"
                 >
                   Live Demo
                 </button>
@@ -555,48 +158,126 @@ While my professional background isn’t traditional tech, it’s packed with tr
             </div>
           </div>
         </div>
-        <img
-          src="./assets/arrow.png"
-          alt="Arrow icon"
-          class="icon arrow"
-          onclick="location.href='./#contact'"
-        />
-      </section>
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
-          <p><a href="mailto:ovega2.gmu@gmail.com">ovega2.gmu@gmail.com</a></p>
-        </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
-          <p><a href="https://www.linkedin.com/in/olivia2vega" target="_blank">LinkedIn</a></p>
-        </div>
       </div>
-    </section>
-    <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+      
+      </section>
+      <section id="ProfProjects" class="profess">
+        <div class="section-inner">
+          <h1 class="titleL">Python Projects</h1>
+          <div class="experience-details-container">
+            <div class="about-containers">
+              <div class="details-container color-container">
+                <div class="article-container">
+                  <img
+                    src="./assets/python-logo-only.svg"
+                    alt="Project 1"
+                    class="project-img"
+                  />
+                </div>
+                <h2 class="experience-sub-title project-title">Snake Game</h2>
+                <div class="btn-container">
+                  <button
+                    class="btn btn-color-1 project-btn"
+                    onclick="window.open('https://github.com/oliviaalicia/PythonProjects/tree/main')"
+                  >
+                    Github
+                  </button>
+                  <button
+                    class="btn btn-color-1 project-btn"
+                    onclick="window.open('https://github.com/oliviaalicia/PythonProjects/blob/main/snake.py')"
+                  >
+                    Code
+                  </button>
+                </div>
+              </div>
+              <div class="details-container color-container">
+                <div class="article-container">
+                  <img
+                    src="./assets/python-logo-only.svg"
+                    alt="Project 2"
+                    class="project-img"
+                  />
+                </div>
+                <h2 class="experience-sub-title project-title">Number Guess</h2>
+                <div class="btn-container">
+                  <button
+                    class="btn btn-color-1 project-btn"
+                    onclick="window.open('https://github.com/oliviaalicia/PythonProjects/tree/main')"
+                  >
+                    Github
+                  </button>
+                  <button
+                    class="btn btn-color-1 project-btn"
+                    onclick="window.open('https://github.com/oliviaalicia/PythonProjects/blob/main/NewNumGuess.py')"
+                  >
+                    Code
+                  </button>
+                </div>
+              </div>
+              <div class="details-container color-container">
+                <div class="article-container">
+                  <img
+                    src="./assets/python-logo-only.svg"
+                    alt="Project 3"
+                    class="project-img"
+                  />
+                </div>
+                <h2 class="experience-sub-title project-title">Word Chance</h2>
+                <div class="btn-container">
+                  <button
+                    class="btn btn-color-1 project-btn"
+                    onclick="window.open('https://github.com/oliviaalicia/PythonProjects/tree/main')"
+                  >
+                    Github
+                  </button>
+                  <button
+                    class="btn btn-color-1 project-btn"
+                    onclick="window.open('https://github.com/oliviaalicia/PythonProjects/blob/main/WordChance/main.py')"
+                  >
+                    Code
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </nav>
-      <p>Copyright &#169; 2024 Olivia Vega. All Rights Reserved.</p>
-    </footer>
-    <script src="script.js"></script>
-  </body>
+        
+        </section>
+
+        <section id="contact">
+          <h1 class="title">Contact Me</h1>
+          <div class="contact-info-upper-container">
+            <div class="contact-info-container">
+              <img
+                src="./assets/email.png"
+                alt="Email icon"
+                class="icon contact-icon email-icon"
+              />
+              <p><a href="mailto:ovega2.gmu@gmail.com">ovega2.gmu@gmail.com</a></p>
+            </div>
+            <div class="contact-info-container">
+              <img
+                src="./assets/linkedin.png"
+                alt="LinkedIn icon"
+                class="icon contact-icon"
+              />
+              <p><a href="https://www.linkedin.com/in/olivia2vega" target="_blank">LinkedIn</a></p>
+            </div>
+          </div>
+        </section>
+        <footer>
+          <nav>
+            <div class="nav-links-container">
+              <ul class="nav-links">
+                <li><a href="#profile">About</a></li>
+                <li><a href="#projects">Experience</a></li>
+                <li><a href="#ProfProjects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+          </nav>
+          <p>Copyright &#169; 2024 Olivia Vega. All Rights Reserved.</p>
+        </footer>
+        <script src="script.js"></script>
+      </body>
 </html>
