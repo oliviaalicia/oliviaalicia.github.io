@@ -18,7 +18,6 @@
       display: none;
     }
     #hamburger-nav {
-      display: felx;
       position: relative; /* ensures it contains absolutely positioned children */
       z-index: 1001; /* higher than background content */
     }
