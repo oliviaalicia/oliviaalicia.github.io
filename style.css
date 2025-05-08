@@ -125,7 +125,7 @@ a:hover {
     height: 2rem;
   }
   .hero {
-    margin-top: 10px;
+    margin-top: 10rem;
     height: 40vh;
     display: flex;
     flex-direction: column;
@@ -153,10 +153,10 @@ a:hover {
 
   .section2{
     background-image: url('assets/Orange.png');
-    background-size: 100%;
+ 
     background-color: #FF70A5;
     width: 100%;
-    min-height: 100vh;
+    min-height: 80vh;
     position: relative;
 
   }
@@ -180,7 +180,7 @@ a:hover {
 
   .section__pic-container {
     display: flex;
-    height: 400px;
+    height: 350px;
     width: 400px;
     margin: auto 0;
 
@@ -192,10 +192,11 @@ a:hover {
   }
   #profile {
     display: flex;
+    margin-top: 50px;
     justify-content: center;
     align-items: center;
     gap: 5rem;
-    height: 80vh;
+    height: 60vh;
     background: url('assets/pink.png');
     background-size: cover;
 
@@ -222,7 +223,7 @@ a:hover {
   }
 .section-inner {
 
-  margin-top: 40px;
+  margin-top: 60px;
   width: 100%;
   max-width: 1200px;
   padding: 60px 20px;
