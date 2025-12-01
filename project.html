@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Vision App - Case Study | Olivia Vega</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pink: #FF69B4;
+            --dark-pink: #FF1493;
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 2rem;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 105, 180, 0.2);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            background: linear-gradient(135deg, var(--white) 0%, var(--pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-back {
+            padding: 0.6rem 1.5rem;
+            background: transparent;
+            color: var(--white);
+            text-decoration: none;
+            border: 2px solid var(--pink);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-back:hover {
+            background: var(--pink);
+            transform: translateX(-5px);
+        }
+        .iconL {
+            cursor: pointer;
+            height: 4rem;
+        }
+        /* Hero Section */
+        .case-hero {
+            margin-top: 80px;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .case-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .case-hero p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Wave Divider */
+        .wave-divider {
+            width: 100%;
+            height: 120px;
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .wave-divider svg {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Content Container */
+        .content-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        /* Project Meta */
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(255, 105, 180, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 105, 180, 0.2);
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-label {
+            font-size: 0.9rem;
+            color: var(--pink);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Section */
+        .case-section {
+            margin: 4rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .case-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--pink);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--pink), transparent);
+        }
+
+        .section-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .section-content p {
+            margin-bottom: 1rem;
+        }
+
+        /* Lists */
+        .case-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .case-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .case-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--pink);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.1), rgba(138, 43, 226, 0.1));
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--pink);
+            margin: 2rem 0;
+        }
+
+        .highlight-box h3 {
+            color: var(--pink);
+            margin-bottom: 1rem;
+        }
+
+        /* Image Placeholder */
+        .project-image {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            margin: 2rem 0;
+            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
+        }
+
+        .proj-image{
+            width: 60%;
+            aspect-ratio: 16/9;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 105, 180, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 105, 180, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--pink);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--pink);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            margin: 5rem 0 3rem;
+            padding: 3rem 2rem;
+            background: rgba(255, 105, 180, 0.05);
+            border-radius: 20px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--pink);
+            color: var(--white);
+            border-color: var(--pink);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-pink);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--pink);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.4);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--dark-pink);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .case-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .project-meta {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="logo"><a href="https://oliviaalicia.github.io/"><img src="./assets/alientransp.png" class="iconL"></a></div>
+            <a href="index.html" class="nav-logo">Olivia Vega</a>
+            <a href="index.html" class="nav-back">← Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="case-hero">
+            <h1>Cooney & Co. Brand Design and Website</h1>
+            <p>UI Design for an Elegant Event Planning Brand</p>
+        </section>
+
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,50 Q300,0 600,50 T1200,50 L1200,120 L0,120 Z" fill="#FF69B4"/>
+            </svg>
+        </div>
+
+        <div class="content-container">
+            <div class="project-meta">
+                <div class="meta-item">
+                    <div class="meta-label">Client</div>
+                    <div class="meta-value">Cooney & Co.</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Role</div>
+                    <div class="meta-value">UI Designer, Developer</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Timeline</div>
+                    <div class="meta-value">5 Months</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Year</div>
+                    <div class="meta-value">2024</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Tools</div>
+                    <div class="meta-value">Wix</div>
+                </div>
+            </div>
+
+            <section class="case-section">
+                <h2 class="section-title">Project Brief</h2>
+                <div class="section-content">
+                    <p>Cooney & Co. needed a polished and cohesive website to represent their event-planning business. While the final site was built in Wix at the client's request, my primary contribution centered on UI design, branding, visual hierarchy, and accessibility-driven interface decisions.</p>
+                    <p>A major part of this project involved crafting a comprehensive brand board that would define the visual direction of the entire site — including typography, color palette, mood inspiration, and overall aesthetic tone. This brand foundation guided the full UI system across desktop and mobile layouts.</p>
+                </div>
+            </section>
+
+            <div class="project-image" aria-label="Application preview"><img src = "/assets/cooney.png" class = "proj-image"/></div>
+            <div class="wave-divider">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,50 Q300,100 600,50 T1200,50 L1200,120 L0,120 Z" fill="#FF69B4"/>
+                </svg>
+            </div>
+            <section class="case-section">
+                <h2 class="section-title">Design Objective</h2>
+                <div class="section-content">
+                    <p>Create a clear, elegant, and emotionally resonant interface that communicates the sophistication of Cooney & Co. while ensuring:</p>
+                    <ul class="case-list">
+                        <li>Strong visual hierarchy</li>
+                        <li>Consistent brand identity</li>
+                        <li>Accessible color contrast and typography</li>
+                        <li>A modern, inviting experience suitable for weddings, milestones, and professional events</li>
+                        <li>A platform that could serve both individual users and enterprise clients</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="case-section">
+                <h2 class="section-title">Brand System</h2>
+                <div class="section-content">
+                    <p>Cooney & Co. needed a polished and cohesive website to represent their event-planning business. While the final site was built in Wix at the client's request, my primary contribution centered on UI design, branding, visual hierarchy, and accessibility-driven interface decisions.</p>
+                    <p>A major part of this project involved crafting a comprehensive brand board that would define the visual direction of the entire site — including typography, color palette, mood inspiration, and overall aesthetic tone. This brand foundation guided the full UI system across desktop and mobile layouts.</p>
+                </div>
+            </section>
+            <div class="project-image" aria-label="Application preview"><img src = "/assets/fonts.png" class = "proj-image"/></div>
+            <section class="case-section">
+                <h2 class="section-title">Brand Creations</h2>
+                <div class="section-content">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">35%</div>
+                            <div class="stat-label">Data Analysts</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">30%</div>
+                            <div class="stat-label">Researchers</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">25%</div>
+                            <div class="stat-label">Business Users</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">10%</div>
+                            <div class="stat-label">Educators</div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 2rem;">Our primary users ranged from technical data analysts requiring advanced features to business professionals needing quick insights from visual data. We conducted extensive user research including interviews, surveys, and usability testing to understand their needs, pain points, and workflows.</p>
+                </div>
+            </section>
+
+            <div class="wave-divider">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M0,50 Q300,0 600,50 T1200,50 L1200,120 L0,120 Z" fill="#FF69B4"/>
+                </svg>
+            </div>
+
+            <section class="case-section">
+                <h2 class="section-title">Approach & Solutions</h2>
+                <div class="section-content">
+                    <h3 style="color: var(--pink); margin-top: 2rem; margin-bottom: 1rem;">Design Process</h3>
+                    <ul class="case-list">
+                        <li><strong>User Research:</strong> Conducted 20+ interviews and surveys with potential users</li>
+                        <li><strong>Wireframing:</strong> Created low-fidelity wireframes to test interaction concepts</li>
+                        <li><strong>Prototyping:</strong> Built interactive prototypes for user testing and iteration</li>
+                        <li><strong>Accessibility Testing:</strong> Worked with accessibility experts throughout development</li>
+                    </ul>
+
+                    <h3 style="color: var(--pink); margin-top: 2rem; margin-bottom: 1rem;">Technical Implementation</h3>
+                    <ul class="case-list">
+                        <li><strong>React Framework:</strong> Component-based architecture for maintainability</li>
+                        <li><strong>Three.js Integration:</strong> Custom WebGL rendering pipeline for optimal performance</li>
+                        <li><strong>Progressive Enhancement:</strong> Fallbacks for browsers without WebGL support</li>
+                        <li><strong>State Management:</strong> Redux for predictable data flow and time-travel debugging</li>
+                        <li><strong>API Design:</strong> RESTful API with real-time WebSocket updates</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="case-section">
+                <h2 class="section-title">Results & Impact</h2>
+                <div class="section-content">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">10k+</div>
+                            <div class="stat-label">Active Users</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Uptime</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">4.8/5</div>
+                            <div class="stat-label">User Rating</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">40%</div>
+                            <div class="stat-label">Time Saved</div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 2rem;">The application launched successfully and exceeded client expectations. User feedback highlighted the intuitive interface and powerful visualization capabilities. The platform processed over 1 million visualizations in its first three months and won recognition at the WebGL Innovation Awards.</p>
+                </div>
+            </section>
+
+            <section class="case-section">
+                <h2 class="section-title">Key Takeaways</h2>
+                <div class="section-content">
+                    <div class="highlight-box">
+                        <p><strong>Accessibility is Non-Negotiable:</strong> Building accessibility in from the start saved months of refactoring and resulted in a better product for all users.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <p><strong>Performance Matters:</strong> Users notice even small delays. Investing in optimization early paid dividends in user satisfaction and retention.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <p><strong>User Testing Reveals Truth:</strong> Our assumptions about user needs were often wrong. Regular testing kept us aligned with actual user requirements.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="cta-section">
+                <h2 style="margin-bottom: 1rem;">Interested in Working Together?</h2>
+                <p style="opacity: 0.8; margin-bottom: 2rem;">Let's create something amazing</p>
+                <div class="cta-buttons">
+                    <a href="index.html#contact" class="btn btn-primary">Get in Touch</a>
+                    <a href="index.html" class="btn btn-secondary">View More Projects</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.case-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

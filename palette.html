@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Vision App - Case Study | Jane Doe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pink: #FF69B4;
+            --dark-pink: #FF1493;
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray: #333333;
+            --light-gray: #666666;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 2rem;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 105, 180, 0.2);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            background: linear-gradient(135deg, var(--white) 0%, var(--pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-back {
+            padding: 0.6rem 1.5rem;
+            background: transparent;
+            color: var(--white);
+            text-decoration: none;
+            border: 2px solid var(--pink);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-back:hover {
+            background: var(--pink);
+            transform: translateX(-5px);
+        }
+
+        /* Hero Section */
+        .case-hero {
+            margin-top: 80px;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .case-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .case-hero p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Wave Divider */
+        .wave-divider {
+            width: 100%;
+            height: 120px;
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .wave-divider svg {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Content Container */
+        .content-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        /* Project Meta */
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(255, 105, 180, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 105, 180, 0.2);
+        }
+
+        .meta-item {
+            text-align: center;
+        }
+
+        .meta-label {
+            font-size: 0.9rem;
+            color: var(--pink);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Section */
+        .case-section {
+            margin: 4rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .case-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--pink);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--pink), transparent);
+        }
+
+        .section-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .section-content p {
+            margin-bottom: 1rem;
+        }
+
+        /* UI Showcase Grid */
+        .ui-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .ui-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 105, 180, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .ui-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--pink);
+            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.3);
+        }
+
+        .ui-card-image {
+            width: 100%;
+            aspect-ratio: 16/10;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ui-card:nth-child(2) .ui-card-image {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .ui-card:nth-child(3) .ui-card-image {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .ui-card:nth-child(4) .ui-card-image {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .ui-card:nth-child(5) .ui-card-image {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .ui-card:nth-child(6) .ui-card-image {
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+        }
+
+        .ui-card-content {
+            padding: 1.5rem;
+        }
+
+        .ui-card-title {
+            font-size: 1.3rem;
+            color: var(--pink);
+            margin-bottom: 0.5rem;
+        }
+
+        .ui-card-description {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Design System Section */
+        .design-system {
+            background: rgba(255, 105, 180, 0.05);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 105, 180, 0.2);
+            margin: 3rem 0;
+        }
+
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .color-swatch {
+            aspect-ratio: 1;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.05);
+        }
+
+        .color-primary {
+            background: #667eea;
+        }
+
+        .color-secondary {
+            background: #FF69B4;
+        }
+
+        .color-accent {
+            background: #764ba2;
+        }
+
+        .color-success {
+            background: #43e97b;
+        }
+
+        .color-warning {
+            background: #fee140;
+            color: #333;
+        }
+
+        /* Typography Showcase */
+        .typography-showcase {
+            margin: 2rem 0;
+        }
+
+        .type-example {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            border-left: 3px solid var(--pink);
+        }
+
+        .type-label {
+            font-size: 0.8rem;
+            color: var(--pink);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Before/After Comparison */
+        .comparison-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .comparison-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 105, 180, 0.2);
+        }
+
+        .comparison-card h3 {
+            color: var(--pink);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .comparison-image {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-card:first-child .comparison-image {
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+        }
+
+        /* Lists */
+        .case-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .case-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .case-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--pink);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.1), rgba(138, 43, 226, 0.1));
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--pink);
+            margin: 2rem 0;
+        }
+
+        .highlight-box h3 {
+            color: var(--pink);
+            margin-bottom: 1rem;
+        }
+
+        /* Full Width Image */
+        .full-width-image {
+            width: 100%;
+            max-width: 1400px;
+            margin: 3rem auto;
+            aspect-ratio: 21/9;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            box-shadow: 0 30px 60px rgba(255, 105, 180, 0.3);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 105, 180, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 105, 180, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--pink);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--pink);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            margin: 5rem 0 3rem;
+            padding: 3rem 2rem;
+            background: rgba(255, 105, 180, 0.05);
+            border-radius: 20px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--pink);
+            color: var(--white);
+            border-color: var(--pink);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-pink);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--pink);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.4);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--dark-pink);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .case-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .project-meta {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ui-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-section {
+                grid-template-columns: 1fr;
+            }
+
+            .color-palette {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">Jane Doe</a>
+            <a href="index.html" class="nav-back">← Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="case-hero">
+            <h1>Interactive Vision App</h1>
+            <p>Reimagining data visualization through intuitive UI/UX design</p>
+        </section>
+
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,50 Q300,0 600,50 T1200,50 L1200,120 L0,120 Z" fill="#FF69B4"/>
+            </svg>
+        </div>
+
+        <div class="content-container">
+            <div class="project-meta">
+                <div class="meta-item">
+                    <div class="meta-label">Client</div>
+                    <div class="meta-value">TechVision Inc.</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Role</div>
+                    <div class="meta-value">UI/UX Designer & Developer</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Timeline</div>
+                    <div class="meta-value">6 Months</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Tools</div>
+                    <div class="meta-value">Figma, React, Three.js</div>
+                </div>
+            </div>
+
+            <section class="case-section">
+                <h2 class="section-title">Project Overview</h2>
+                <div class="section-content">
+                    <p>TechVision Inc. needed a complete UI/UX redesign of their data visualization platform. The existing interface was cluttered, inaccessible, and failed to showcase the power of their technology. My goal was to create a modern, intuitive interface that made complex 3D visualizations accessible to all users.</p>
+                    <p>This project showcases my approach to user-centered design, from research and wireframing through high-fidelity prototypes and final implementation.</p>
+                </div>
+            </section>
+
+            <div class="full-width-image" aria-label="Hero interface mockup">🎨</div>
+
+            <div class="wave-divider">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M0,50 Q300,100 600,50 T1200,50 L1200,120 L0,120 Z" fill="#FF69B4"/>
+                </svg>
+            </div>
+
+            <section class="case-section">
+                <h2 class="section-title">The Challenge</h2>
+                <div class="section-content">
+                    <p>The original interface suffered from several critical issues:</p>
+                    <ul class="case-list">
+                        <li><strong>Poor Information Architecture:</strong> Features were buried in complex menus</li>
+                        <li><strong>Accessibility Barriers:</strong> No keyboard navigation, poor color contrast</li>
+                        <li><strong>Visual Clutter:</strong> Overwhelming users with too many options at once</li>
+                        <li><strong>Inconsistent Design:</strong> No cohesive design system or patterns</li>
+                        <li><strong>Mobile Experience:</strong> Completely unusable on smaller screens</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="case-section">
+                <h2 class="section-title">Before & After</h2>
+                <div class="comparison-section">
+                    <div class="comparison-card">
+                        <h3>Before</h3>
+                        <div class="comparison-image">⚠️</div>
+                        <ul class="case-list" style="font-size: 0.9rem;">
+                            <li>Cluttered interface</li>
+                            <li>Poor contrast</li>
+                            <li>Hidden features</li>
+                            <li>Desktop-only design</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card">
+                        <h3>After</h3>
+                        <div class="comparison-image">✨</div>
+                        <ul class="case-list" style="font-size: 0.9rem;">
+                            <li>Clean, focused layout</li>
+                            <li>WCAG AAA compliant</li>
+                            <li>Intuitive navigation</li>
+                            <li>Fully responsive</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <div class="wave-divider">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M0,50 Q300,0 600,50 T1200,50 L1200,120 L0,120 Z" fill="#FF69B4"/>
+                </svg>
+            </div>
+
+            <section class="case-section">
+                <h2 class="section-title">UI Design System</h2>
+                <div class="design-system">
+                    <h3 style="color: var(--pink); margin-bottom: 1.5rem;">Color Palette</h3>
+                    <p style="opacity: 0.8; margin-bottom: 1rem;">Carefully selected colors ensuring accessibility and visual hierarchy</p>
+                    <div class="color-palette">
+                        <div class="color-swatch color-primary">
+                            Primary<br>#667eea
+                        </div>
+                        <div class="color-swatch color-secondary">
+                            Secondary<br>#FF69B4
+                        </div>
+                        <div class="color-swatch color-accent">
+                            Accent<br>#764ba2
+                        </div>
+                        <div class="color-swatch color-success">
+                            Success<br>#43e97b
+                        </div>
+                        <div class="color-swatch color-warning">
+                            Warning<br>#fee140
+                        </div>
+                    </div>
+
+                    <h3 style="color: var(--pink); margin-top: 3rem; margin-bottom: 1.5rem;">Typography</h3>
+                    <div class="typography-showcase">
+                        <div class="type-example">
+                            <div class="type-label">Heading 1 - 48px Bold</div>
+                            <h1 style="font-size: 3rem;">The Quick Brown Fox</h1>
+                        </div>
+                        <div class="type-example">
+                            <div class="type-label">Heading 2 - 36px Bold</div>
+                            <h2 style="font-size: 2.25rem;">Jumps Over the Lazy Dog</h2>
+                        </div>
+                        <div class="type-example">
+                            <div class="type-label">Body Text - 16px Regular</div>
+                            <p>Clear, readable typography enhances user comprehension and reduces cognitive load throughout the interface.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="case-section">
+                <h2 class="section-title">Key Interface Screens</h2>
+                <div class="ui-showcase">
+                    <div class="ui-card">
+                        <div class="ui-card-image">📊</div>
+                        <div class="ui-card-content">
+                            <h3 class="ui-card-title">Dashboard</h3>
+                            <p class="ui-card-description">Clean overview with quick access to recent projects and key metrics. Card-based layout for easy scanning.</p>
+                        </div>
+                    </div>
+                    <div class="ui-card">
+                        <div class="ui-card-image">🎨</div>
+                        <div class="ui-card-content">
+                            <h3 class="ui-card-title">Visualization Canvas</h3>
+                            <p class="ui-card-description">Immersive 3D workspace with contextual toolbars that appear on demand, keeping the canvas clean.</p>
+                        </div>
+                    </div>
+                    <div class="ui-card">
+                        <div class="ui-card-image">⚙️</div>
+                        <div class="ui-card-content">
+                            <h3 class="ui-card-title">Settings Panel</h3>
+                            <p class="ui-card-description">Intuitive controls with real-time preview. Organized by logical categories with clear visual feedback.</p>
+                        </div>
+                    </div>
+                    <div class="ui-card">
+                        <div class="ui-card-image">📱</div>
+                        <div class="ui-card-content">
+                            <h3 class="ui-card-title">Mobile Experience</h3>
+                            <p class="ui-card-description">Fully responsive design with touch-optimized controls and gesture navigation for power users.</p>
+                        </div>
+                    </div>
+                    <div class="ui-card">
+                        <div class="ui-card-image">🔍</div>
+                        <div class="ui-card-content">
+                            <h3 class="ui-card-title">Data Explorer</h3>
+                            <p class="ui-card-description">Advanced filtering and search with smart suggestions. Helps users find insights quickly.</p>
+                        </div>
+                    </div>
+                    <div class="ui-card">
+                        <div class="ui-card-image">🤝</div>
+                        <div class="ui-card-content">
+                            <h3 class="ui-card-title">Collaboration</h3>
+                            <p class="ui-card-description">Real-time collaboration features with presence indicators and inline commenting.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="wave-divider">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M0,50 Q300,100 600,50 T1200,50 L1200,120 L0,120 Z" fill="#FF69B4"/>
+                </svg>
+            </div>
+
+            <section class="case-section">
+                <h2 class="section-title">Design Process</h2>
+                <div class="section-content">
+                    <div class="highlight-box">
+                        <h3>1. Research & Discovery</h3>
+                        <p>Conducted 25+ user interviews and competitive analysis to understand pain points and opportunities. Created user personas and journey maps.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <h3>2. Wireframing & Information Architecture</h3>
+                        <p>Sketched 50+ concepts, refined to 10 wireframes. Tested with users to validate navigation structure and feature placement.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <h3>3. Visual Design & Prototyping</h3>
+                        <p>Created high-fidelity mockups in Figma with interactive prototypes. Established comprehensive design system with reusable components.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <h3>4. Testing & Iteration</h3>
+                        <p>Ran 5 rounds of usability testing with diverse users. Refined based on feedback, achieving 95% task completion rate.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <h3>5. Development & Launch</h3>
+                        <p>Built React components with accessibility built-in. Launched with comprehensive documentation for developers.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="case-section">
+                <h2 class="section-title">Accessibility Focused</h2>
+                <div class="section-content">
+                    <p>Accessibility was a core principle, not an afterthought:</p>
+                    <ul class="case-list">
+                        <li><strong>WCAG AAA Compliance:</strong> All text meets the highest contrast standards</li>
+                        <li><strong>Keyboard Navigation:</strong> Every feature accessible without a mouse</li>
+                        <li><strong>Screen Reader Support:</strong> Comprehensive ARIA labels and semantic HTML</li>
+                        <li><strong>Motion Preferences:</strong> Respects prefers-reduced-motion settings</li>
+                        <li><strong>Focus Indicators:</strong> Clear visual feedback for keyboard users</li>
+                        <li><strong>Alternative Text:</strong> Descriptive labels for all visual elements</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="wave-divider">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M0,50 Q300,0 600,50 T1200,50 L1200,120 L0,120 Z" fill="#FF69B4"/>
+                </svg>
+            </div>
+
+            <section class="case-section">
+                <h2 class="section-title">Impact & Results</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">87%</div>
+                        <div class="stat-label">Reduction in Support Tickets</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4.9/5</div>
+                        <div class="stat-label">User Satisfaction Score</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Task Completion Rate</div>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <p>The redesign transformed the user experience, leading to measurable improvements across all key metrics. Users particularly praised the intuitive interface and improved accessibility features.</p>
+                </div>
+            </section>
+
+            <section class="case-section">
+                <h2 class="section-title">Key Design Decisions</h2>
+                <div class="section-content">
+                    <div class="highlight-box">
+                        <h3>Progressive Disclosure</h3>
+                        <p>Instead of overwhelming users with all features at once, we implemented progressive disclosure. Advanced features appear contextually when needed, keeping the interface clean for beginners while powerful for experts.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <h3>Visual Hierarchy</h3>
+                        <p>Used size, color, and spacing strategically to guide users' attention to the most important elements first. Primary actions stand out with the pink accent color.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <h3>Consistent Patterns</h3>
+                        <p>Established a component library ensuring consistent interactions throughout the app. Once learned, patterns work the same way everywhere.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="case-section">
+                <h2 class="section-title">Lessons Learned</h2>
+                <div class="section-content">
+                    <ul class="case-list">
+                        <li><strong>Test Early, Test Often:</strong> Early usability testing saved us from costly mistakes and validated our design decisions</li>
+                        <li><strong>Design Systems Save Time:</strong> The upfront investment in a design system paid massive dividends during implementation</li>
+                        <li><strong>Accessibility Benefits Everyone:</strong> Features built for accessibility improved the experience for all users</li>
+                        <li><strong>Iterate Based on Data:</strong> User analytics revealed unexpected usage patterns that informed our improvements</li>
+                        <li><strong>Collaboration is Key:</strong> Close collaboration between design and development resulted in better outcomes</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="cta-section">
+                <h2 style="margin-bottom: 1rem;">Like What You See?</h2>
+                <p style="opacity: 0.8; margin-bottom: 2rem;">Let's discuss your next UI/UX project</p>
+                <div class="cta-buttons">
+                    <a href="index.html#contact" class="btn btn-primary">Get in Touch</a>
+                    <a href="index.html" class="btn btn-secondary">View More Projects</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.case-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>stat-number">156%</div>
+                        <div class="stat-label">Increase in User Engagement</div>
+                    </div>
+                    <div class="

@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="mediaqueries.css" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Olivia Vega</title>
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olivia Vega - Full-Stack Developer Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-      <nav id="desktop-nav">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav id="desktop-nav">
         <div class="logo"><a href="https://oliviaalicia.github.io/"><img src="./assets/alientransp.png" class="iconL"></a></div>
           <ul class="nav-links">
-            <li><a href="#profile">About</a></li>
-            <li><a href="#projects">Experience</a></li>
-            <li><a href="#ProfProjects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#main-content">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
@@ -30,262 +26,138 @@
             <span></span>
           </div>
           <div class="menu-links">
-            <li><a href="#profile" onclick="toggleMenu()">About</a></li>
-            <li><a href="#projects" onclick="toggleMenu()">Experience</a></li>
-            <li><a href="#ProfProjects" onclick="toggleMenu()">Projects</a></li>
+            <li><a href="#about" onclick="toggleMenu()">About</a></li>
+            <li><a href="#main-content" onclick="toggleMenu()">Projects</a></li>
             <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
           </div>
         </div>
       </nav>
-  <div class="hero">
-    <h1 class ="title">Olivia Vega</h1>
-    <h3>Frontend Developer, UI Designer, Addicted to Learning</h3>
-    <div class="btn-container">
-      <button
-        class="btn btn-color-2"
-        onclick="window.open('./assets/O_V_Resume.pdf')"
-      >
-        Download CV
-      </button>
-      <button class="btn btn-color-1" onclick="location.href='#contact'">
-        Contact Info
-      </button>
-    </div>
-    <div id="socials-container">
-      <img
-        src="./assets/linkedin.png"
-        alt="My LinkedIn profile"
-        class="icon"
-        onclick="location.href='https://www.linkedin.com/in/olivia2vega'"
-        />
-      <img
-        src="./assets/github.png"
-        alt="My Github profile"
-        class="icon"
-        onclick="location.href='https://github.com/oliviaalicia'"
-      />
-    </div>
-    <img src="assets/gifblj=k.gif" class="alien"/>
-    </div>
 
-    <section id="profile">
-      <div class="section-inner">
-        <h1 class="titleL" class="new">About</h1>
-        <div class="section-container">
-        <div class="section__pic-container">
-          <img src="./assets/profile-pic.jpg" alt="Olivia Vega profile picture" class="profile-pic"/>
-        </div>
-        <div class="section__text">
-          <p class="section__text__p2">  Hi there! I’m a UI Designer and Web Developer-in-the-making with a passion for solving real problems through intuitive and thoughtful design. Currently wrapping up my degree in Information Technology with a concentration in Web Application Development, I’m making a career pivot from hospitality and floral event planning into the world of UX/UI and web development — and loving every opportunity to blend my interests in creativity and technology. </p>
-       </div>
-      </div>
-      </div>
-    </section>
-    <section id="projects" class="design">
-      <div class="section-inner">
-        <h1 class="titleL">Front End Projects</h1>
-        <div class="experience-details-container">
-          <div class="about-containers">
-            <div class="details-container color-container">
-              <div class="article-container">
-                <img
-                  src="./assets/eye.png"
-                  alt="Project 1"
-                  class="project-img"
-                />
-              </div>
-              <h2 class="experience-sub-title project-title">Eyeball</h2>
-              <p class="experience-sub-title">HTML, CSS, JavaScript</p>
-              <div class="btn-container">
-                <button
-                  class="btn btn-color-1 project-btn"
-                  onclick="window.open('https://github.com/')"
-                >
-                  Github
-                </button>
-                <button
-                  class="btn btn-color-1 project-btn"
-                  onclick="window.open('https://codepen.io/oliviaalicia-the-flexboxer/pen/WbbyoOY')"
-                >
-                  Live Demo
-                </button>
-              </div>
-            </div>
-            <div class="details-container color-container">
-              <div class="article-container">
-                <img
-                  src="./assets/colorFlip.png"
-                  alt="Color Pal"
-                  class="project-img"
-                />
-              </div>
-              <h2 class="experience-sub-title project-title">Color Palette</h2>
-              <p class="experience-sub-title">HTML, CSS, JavaScript</p>
-              <div class="btn-container">
-                <button
-                  class="btn btn-color-1 project-btn"
-                  onclick="window.open('https://github.com/oliviaalicia/PalettePal')"
-                >
-                  Github
-                </button>
-                <button
-                  class="btn btn-color-1 project-btn"
-                  onclick="window.open('https://oliviaalicia.github.io/PalettePal/')"
-                >
-                  Live Demo
-                </button>
-              </div>
-            </div>
-            <div class="details-container color-container">
-              <div class="article-container">
-                <img
-                  src="./assets/cooneyco.png"
-                  alt="Project 3"
-                  class="project-img"
-                />
-              </div>
-              <h2 class="experience-sub-title project-title">Cooney&Co.</h2>
-              <p class="experience-sub-title">Wix, HTML, CSS</p>
-              <div class="btn-container">
-                <button
-                  class="btn btn-color-1 project-btn"
-                  onclick="window.open('https://github.com/')"
-                >
-                  About
-                </button>
-                <button
-                  class="btn btn-color-1 project-btn"
-                  onclick="window.open('https://cooneynco.com')"
-                >
-                  Live Demo
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      </section>
-      <section id="ProfProjects" class="profess">
-        <div class="section-inner">
-          <h1 class="titleL">Python Projects</h1>
-          <div class="experience-details-container">
-            <div class="about-containers">
-              <div class="details-container color-container">
-                <div class="article-container">
-                  <img
-                    src="./assets/snake.png"
-                    alt="Project 1"
-                    class="project-img"
-                  />
-                </div>
-                <h2 class="experience-sub-title project-title">Snake Game</h2>
-                <p class="experience-sub-title">Python</p>
-                <div class="btn-container">
-                  <button
-                    class="btn btn-color-1 project-btn"
-                    onclick="window.open('https://github.com/oliviaalicia/PythonProjects/tree/main')"
-                  >
-                    Github
-                  </button>
-                  <button
-                    class="btn btn-color-1 project-btn"
-                    onclick="window.open('https://github.com/oliviaalicia/PythonProjects/blob/main/snake.py')"
-                  >
-                    Code
-                  </button>
-                </div>
-              </div>
-              <div class="details-container color-container">
-                <div class="article-container">
-                  <img
-                    src="./assets/numguess.png"
-                    alt="Project 2"
-                    class="project-img"
-                  />
-                </div>
-                <h2 class="experience-sub-title project-title">Number Guess</h2>
-                <p class="experience-sub-title">Python</p>
-                <div class="btn-container">
-                  <button
-                    class="btn btn-color-1 project-btn"
-                    onclick="window.open('https://github.com/oliviaalicia/PythonProjects/tree/main')"
-                  >
-                    Github
-                  </button>
-                  <button
-                    class="btn btn-color-1 project-btn"
-                    onclick="window.open('https://github.com/oliviaalicia/PythonProjects/blob/main/NewNumGuess.py')"
-                  >
-                    Code
-                  </button>
-                </div>
-              </div>
-              <div class="details-container color-container">
-                <div class="article-container">
-                  <img
-                    src="./assets/wchance.png"
-                    alt="Project 3"
-                    class="project-img"
-                  />
-                </div>
-                <h2 class="experience-sub-title project-title">Word Chance</h2>
-                <p class="experience-sub-title">Python</p>
-                <div class="btn-container">
-                  <button
-                    class="btn btn-color-1 project-btn"
-                    onclick="window.open('https://github.com/oliviaalicia/PythonProjects/tree/main')"
-                  >
-                    Github
-                  </button>
-                  <button
-                    class="btn btn-color-1 project-btn"
-                    onclick="window.open('https://github.com/oliviaalicia/PythonProjects/blob/main/WordChance/main.py')"
-                  >
-                    Code
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <header class="hero" role="banner">
         
+        <div class="hero-content">
+            <h1>Olivia Vega</h1>
+            
+            <h2>Full-Stack Developer</h2>
+            <p>Building beautiful, functional digital experiences</p>
+            <div class="cta-buttons">
+                <a href="#main-content" class="btn btn-primary">Learn More</a>
+                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            </div>
+        </div>
+        <a href="#main-content"><img src="assets/gifblj=k.gif" class="alien"/></a>
+    </header>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        ↑
+    </button>
+    <main id="main-content">
+        <h2 class="section-header">Front-End Projects</h2>
+
+        <section class="projects-container">
+            <article class="project-card" data-project="1">
+                <div class="project-image">
+                    <div class="image-placeholder" aria-label="Project 1 preview"><img
+                    src="./assets/cooney.png"
+                    alt="Project Image"
+                    class="project-img"
+                  /></div>
+                    <div class="project-links">
+                        <a href="./coon.html" class="project-link" target ="_blank";>About</a>
+                        <a href="https://www.cooneynco.com/" class="project-link" target="_blank" rel="noopener noreferrer">Demo</a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Cooney & Co.</h3>
+                    <h4>Event Services Website</h4>
+                    <p>Cooney & Co. is a boutique event planning company specializing in weddings, corporate events, celebrations of life, and milestone gatherings. The client needed a polished online presence that clearly communicates their services and expertise while maintaining an elegant, trustworthy look and feel.</p>
+                    <p>Technologies: Wix</p>
+                </div>
+            </article>
+
+            <article class="project-card" data-project="2">
+                <div class="project-image">
+                    <div class="image-placeholder" aria-label="Project 2 preview"><img
+                    src="./assets/palette_pal.png"
+                    alt="Project Image"
+                    class="project-img"
+                  /></div>
+                    <div class="project-links">
+                        <a href="https://github.com/oliviaalicia" class="project-link";>Github</a>
+                        <a href="https://oliviaalicia.github.io/PalettePal/" class="project-link" target="_blank">Demo</a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Palette Pal</h3>
+                    <p>A fun and simple design tool for artists of all kinds. Utilizes Javascript libraries.</p>
+                    <p>Technologies: Figma, HTML, CSS, JavaScript</p>
+                </div>
+            </article>
+
+            <article class="project-card" data-project="3">
+                <div class="project-image">
+                    <div class="image-placeholder" aria-label="Project 3 preview"><img
+                    src="./assets/eye.png"
+                    alt="Project Image"
+                    class="project-img"
+                  /></div>
+                    <div class="project-links">
+                        <a href="https://github.com/oliviaalicia" class="project-link";>Github</a>
+                        <a href="https://codepen.io/oliviaalicia/pen/EaKpbae" class="project-link" target="_blank" rel="noopener noreferrer">Demo</a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Cursor-Tracking Eye</h3>
+                    <p>A full-featured online shopping experience with cart management, payment integration, and order tracking. The platform includes an admin panel for inventory management and analytics. Built with performance optimization and security as top priorities, handling thousands of transactions seamlessly.</p>
+                    <p>Technologies: Next.js, Stripe API, MongoDB, Node.js</p>
+                </div>
+            </article>
         </section>
 
-        <section id="contact">
-          <h1 class="title">Contact Me</h1>
-          <div class="contact-info-upper-container">
-            <div class="contact-info-container">
-              <img
-                src="./assets/email.png"
-                alt="Email icon"
-                class="icon contact-icon email-icon"
-              />
-              <p><a href="mailto:ovega2.gmu@gmail.com">ovega2.gmu@gmail.com</a></p>
+        <section id="contact" class="contact-section">
+            <h2>Let's Work Together</h2>
+            <p>Have a project in mind? I'd love to hear from you.</p>
+
+            <div class="contact-grid">
+                <a href="mailto:ovega2.gmu@gmail.com" class="contact-btn">
+                    <span aria-hidden="true">📧</span>
+                    <span>Email</span>
+                </a>
+                <a href="https://github.com/oliviaalicia" class="contact-btn" target="_blank" rel="noopener noreferrer">
+                    <span aria-hidden="true">💻</span>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://linkedin.com/in/olivia2vega" class="contact-btn" target="_blank" rel="noopener noreferrer">
+                    <span aria-hidden="true">💼</span>
+                    <span>LinkedIn</span>
+                </a>
             </div>
-            <div class="contact-info-container">
-              <img
-                src="./assets/linkedin.png"
-                alt="LinkedIn icon"
-                class="icon contact-icon"
-              />
-              <p><a href="https://www.linkedin.com/in/olivia2vega" target="_blank">LinkedIn</a></p>
-            </div>
-          </div>
+
+            <form class="contact-form" onsubmit="handleSubmit(event)" aria-label="Contact form">
+                <input 
+                    type="text" 
+                    class="form-input" 
+                    placeholder="Your Name" 
+                    required
+                    aria-label="Your name"
+                >
+                <input 
+                    type="email" 
+                    class="form-input" 
+                    placeholder="Your Email" 
+                    required
+                    aria-label="Your email"
+                >
+                <textarea 
+                    class="form-input" 
+                    placeholder="Your Message" 
+                    required
+                    aria-label="Your message"
+                ></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
         </section>
-        <footer>
-          <nav>
-            <div class="nav-links-container">
-              <ul class="nav-links">
-                <li><a href="#profile">About</a></li>
-                <li><a href="#projects">Experience</a></li>
-                <li><a href="#ProfProjects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-              </ul>
-            </div>
-          </nav>
-          <p>Copyright &#169; 2024 Olivia Vega. All Rights Reserved.</p>
-        </footer>
-        <script src="script.js"></script>
-      </body>
+    </main>
+
+    <script src="script.js"></script>
+</body>
 </html>
